@@ -1,41 +1,22 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:counter_app/modules/home/home_page.dart';
+import 'package:counter_app/modules/login/login_page.dart';
+import 'package:counter_app/modules/splash/splash_page.dart';
+import 'package:counter_app/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.purple), home: HomePage()));
+  runApp(AppWidget());
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  var count = 0;
-
-  void increment() {
-    count++;
-    setState(() {});
-    print(count);
-  }
-
+class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Meu Primeiro App"),
-      ),
-      body: const Center(
-          child: Text(
-        'CONTADOR\n0',
-        textAlign: TextAlign.center,
-      )),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          increment();
-        },
-      ),
+    return MaterialApp(
+      title: 'Pay Flow',
+      theme: ThemeData(primaryColor: AppColors.primary),
+      home: LoginPage(),
     );
   }
 }
